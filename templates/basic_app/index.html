@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %} {% comment %} This is how you inherit
+                                        from base.html file {% endcomment %}
+    {% block body_block %}
+        <h1>WELCOME TO INDEX!</h1>
+        <h2>This is index.html page!</h2>
+        <h3>
+        {% comment %} Built-in filters. {% endcomment %}
+            {{ text | title }} {% comment %} Anything after '|' will be filter. Here 'title' is the name of the filter
+                                which capitalizes every first character of a word in a  sentence.
+                                For more filters google
+                                django templates filter{% endcomment %}
+        {{ number | add:"99" }}
+
+            <br> <br>
+
+        {% comment %} Custom filter from my_extras_filters.py file. {% endcomment %}
+        {{ text | cut:'rld'}} {% comment %} Cuts-off 'hello' from 'hello world'{% endcomment %}
+        </h3>
+
+    {% endblock %}
+
